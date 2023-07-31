@@ -1,54 +1,49 @@
-Toggle navigation
-0x02. AirBnB clone - MySQL
-Group project
-Python
-OOP
-Back-end
-SQL
-MySQL
-ORM
-SQLAlchemy
- By: Guillaume
- Weight: 2
- Project to be done in teams of 2 people (your team: Isaac Isaac, Hayat Mohamed)
- Project will start Jun 16, 2023 6:00 AM, must end by Jun 22, 2023 6:00 AM
- Checker was released at Jun 17, 2023 6:00 PM
- An auto review will be launched at the deadline
-Background Context
-Environment variables will be your best friend for this project!
 
-HBNB_ENV: running environment. It can be “dev” or “test” for the moment (“production” soon!)
-HBNB_MYSQL_USER: the username of your MySQL
-HBNB_MYSQL_PWD: the password of your MySQL
-HBNB_MYSQL_HOST: the hostname of your MySQL
-HBNB_MYSQL_DB: the database name of your MySQL
-HBNB_TYPE_STORAGE: the type of storage used. It can be “file” (using FileStorage) or db (using DBStorage)
+0x05. AirBnB clone - RESTful API
+Python
+Back-end
+API
+Webserver
+Flask
+ By: Guillaume, CTO at Holberton School
+ Weight: 2
+ Project to be done in teams of 2 people (your team: AdamsGeeky MUHAMMAD, Isaac Isaac)
+ Project will start Jul 27, 2023 6:00 AM, must end by Aug 1, 2023 6:00 AM
+ Checker was released at Jul 28, 2023 12:00 PM
+ An auto review will be launched at the deadline
+Concepts
+For this project, we expect you to look at these concepts:
+
+REST API
+AirBnB clone
 Resources
 Read or watch:
 
-cmd module
-packages concept page
-unittest module
-args/kwargs
-SQLAlchemy tutorial
-How To Create a New User and Grant Permissions in MySQL
-Python3 and environment variables
-SQLAlchemy
-MySQL 8.0 SQL Statement Syntax
+REST API concept page
+Learn REST: A RESTful Tutorial
+Designing a RESTful API with Python and Flask
+HTTP access control (CORS)
+Flask cheatsheet
+What are Flask Blueprints, exactly?
+Flask
+Modular Applications with Blueprints
+Flask tests
+Flask-CORS
 Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
 General
-What is Unit testing and how to implement it in a large project
-What is *args and how to use it
-What is **kwargs and how to use it
-How to handle named arguments in a function
-How to create a MySQL database
-How to create a MySQL user and grant it privileges
-What ORM means
-How to map a Python Class to a MySQL table
-How to handle 2 different storage engines with the same codebase
-How to use environment variables
+What REST means
+What API means
+What CORS means
+What is an API
+What is a REST API
+What are other type of APIs
+Which is the HTTP method to retrieve resource(s)
+Which is the HTTP method to create a resource
+Which is the HTTP method to update resource
+Which is the HTTP method to delete resource
+How to request REST API
 Copyright - Plagiarism
 You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
 You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
@@ -57,11 +52,11 @@ Any form of plagiarism is strictly forbidden and will result in removal from the
 Requirements
 Python Scripts
 Allowed editors: vi, vim, emacs
-All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
+All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.4.3)
 All your files should end with a new line
 The first line of all your files should be exactly #!/usr/bin/python3
 A README.md file, at the root of the folder of the project, is mandatory
-Your code should use the pycodestyle (version 2.8.*)
+Your code should use the PEP 8 style (version 1.7)
 All your files must be executable
 The length of your files will be tested using wc
 All your modules should have documentation (python3 -c 'print(__import__("my_module").__doc__)')
@@ -78,743 +73,796 @@ All your test files and folders should start by test_
 Your file organization in the tests folder should be the same as your project: ex: for models/base_model.py, unit tests must be in: tests/test_models/test_base_model.py
 All your tests should be executed by using this command: python3 -m unittest discover tests
 You can also test file by file by using this command: python3 -m unittest tests/test_models/test_base_model.py
-All your modules should have documentation (python3 -c 'print(__import__("my_module").__doc__)')
-All your classes should have documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-All your functions (inside and outside a class) should have documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
 We strongly encourage you to work together on test cases, so that you don’t miss any edge cases
-SQL Scripts
-Allowed editors: vi, vim, emacs
-All your files will be executed on Ubuntu 20.04 LTS using MySQL 8.0
-Your files will be executed with SQLAlchemy version 1.4.x
-All your files should end with a new line
-All your SQL queries should have a comment just before (i.e. syntax above)
-All your files should start by a comment describing the task
-All SQL keywords should be in uppercase (SELECT, WHERE…)
-A README.md file, at the root of the folder of the project, is mandatory
-The length of your files will be tested using wc
 GitHub
-There should be one project repository per group. If you clone/fork/whatever a partner’s project repository with the same name before the second deadline, you risk a 0% score.
+There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.
 
 More Info
 
 
-Comments for your SQL file:
-$ cat my_script.sql
--- first 3 students in the Batch ID=3
--- because Batch 3 is the best!
-SELECT id, name FROM students WHERE batch_id = 3 ORDER BY created_at DESC LIMIT 3;
-$
+Install Flask
+$ pip3 install Flask
 Video library(2 total)
 Search by title
-HBNB - storage abstraction
-AirBnB console
+Python: Flask RestAPI
+AirBnB API
 Tasks
-0. Fork me if you can!
+0. Restart from scratch!
 mandatory
-In the industry, you will work on an existing codebase 90% of the time. Your first thoughts upon looking at it might include:
+No no no! We are already too far in the project to restart everything.
 
-“Who did this code?”
-“How it works?”
-“Where are unittests?”
-“Where is this?”
-“Why did they do that like this?”
-“I don’t understand anything.”
-“… I will refactor everything…”
-But the worst thing you could possibly do is to redo everything. Please don’t do that! Note: the existing codebase might be perfect, or it might have errors. Don’t always trust the existing codebase!
+But once again, let’s work on a new codebase.
 
 For this project you will fork this codebase:
 
-update the repository name to AirBnB_clone_v2
-update the README.md with your information but don’t delete the initial authors
-If you are the owner of this repository, please create a new repository named AirBnB_clone_v2 with the same content of AirBnB_clone
-
+Update the repository name to AirBnB_clone_v3
+Update the README.md:
+Add yourself as an author of the project
+Add new information about your new contribution
+Make it better!
+If you’re the owner of this codebase, create a new repository called AirBnB_clone_v3 and copy over all files from AirBnB_clone_v2
 Repo:
 
-GitHub repository: AirBnB_clone_v2
-   
-1. Bug free!
-mandatory
-Do you remember the unittest module?
-
-This codebase contains many test cases. Some are missing, but the ones included cover the basic functionality of the program.
-
-guillaume@ubuntu:~/AirBnB_v2$ python3 -m unittest discover tests 2>&1 /dev/null | tail -n 1
-OK
-guillaume@ubuntu:~/AirBnB_v2$ 
-All your unittests must pass without any errors at anytime in this project, with each storage engine!. Same for PEP8!
-
-guillaume@ubuntu:~/AirBnB_v2$ HBNB_ENV=test HBNB_MYSQL_USER=hbnb_test HBNB_MYSQL_PWD=hbnb_test_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_test_db HBNB_TYPE_STORAGE=db python3 -m unittest discover tests 2>&1 /dev/null | tail -n 1
-OK
-guillaume@ubuntu:~/AirBnB_v2$ 
-Some tests won’t be relevant for some type of storage, please skip them by using the skipIf feature of the Unittest module - 26.3.6. Skipping tests and expected failures. Of course, the number of tests must be higher than the current number of tests, so if you decide to skip a test, you should write a new test!
-
-How to test with MySQL?
-First, you create a specific database for it (next tasks). After, you have to remember what the purpose of an unittest?
-
-“Assert a current state (objects/data/database), do an action, and validate this action changed (or not) the state of your objects/data/database”
-
-For example, “you want to validate that the create State name="California" command in the console will add a new record in your table states in your database”, here steps for your unittest:
-
-get the number of current records in the table states (my using a MySQLdb for example - but not SQLAlchemy (remember, you want to test if it works, so it’s better to isolate from the system))
-execute the console command
-get (again) the number of current records in the table states (same method, with MySQLdb)
-if the difference is +1 => test passed
-Repo:
-
-GitHub repository: AirBnB_clone_v2
+GitHub repository: AirBnB_clone_v3
   
-2. Console improvements
+1. Never fail!
 mandatory
-Update the def do_create(self, arg): function of your command interpreter (console.py) to allow for object creation with given parameters:
 
-Command syntax: create <Class name> <param 1> <param 2> <param 3>...
-Param syntax: <key name>=<value>
-Value syntax:
-String: "<value>" => starts with a double quote
-any double quote inside the value must be escaped with a backslash \
-all underscores _ must be replace by spaces . Example: You want to set the string My little house to the attribute name, your command line must be name="My_little_house"
-Float: <unit>.<decimal> => contains a dot .
-Integer: <number> => default case
-If any parameter doesn’t fit with these requirements or can’t be recognized correctly by your program, it must be skipped
-Don’t forget to add tests for this new feature!
 
-Also, this new feature will be tested here only with FileStorage engine.
+Since the beginning we’ve been using the unittest module, but do you know why unittests are so important? Because when you add a new feature, you refactor a piece of code, etc… you want to be sure you didn’t break anything.
 
-guillaume@ubuntu:~/AirBnB_v2$ cat test_params_create
-create State name="California"
-create State name="Arizona"
-all State
+At Holberton, we have a lot of tests, and they all pass! Just for the Intranet itself, there are:
 
-create Place city_id="0001" user_id="0001" name="My_little_house" number_rooms=4 number_bathrooms=2 max_guest=10 price_by_night=300 latitude=37.773972 longitude=-122.431297
-all Place
-guillaume@ubuntu:~/AirBnB_v2$ cat test_params_create | ./console.py 
-(hbnb) d80e0344-63eb-434a-b1e0-07783522124e
-(hbnb) 092c9e5d-6cc0-4eec-aab9-3c1d79cfc2d7
-(hbnb) [[State] (d80e0344-63eb-434a-b1e0-07783522124e) {'id': 'd80e0344-63eb-434a-b1e0-07783522124e', 'created_at': datetime.datetime(2017, 11, 10, 4, 41, 7, 842160), 'updated_at': datetime.datetime(2017, 11, 10, 4, 41, 7, 842235), 'name': 'California'}, [State] (092c9e5d-6cc0-4eec-aab9-3c1d79cfc2d7) {'id': '092c9e5d-6cc0-4eec-aab9-3c1d79cfc2d7', 'created_at': datetime.datetime(2017, 11, 10, 4, 41, 7, 842779), 'updated_at': datetime.datetime(2017, 11, 10, 4, 41, 7, 842792), 'name': 'Arizona'}]
-(hbnb) (hbnb) 76b65327-9e94-4632-b688-aaa22ab8a124
-(hbnb) [[Place] (76b65327-9e94-4632-b688-aaa22ab8a124) {'number_bathrooms': 2, 'longitude': -122.431297, 'city_id': '0001', 'user_id': '0001', 'latitude': 37.773972, 'price_by_night': 300, 'name': 'My little house', 'id': '76b65327-9e94-4632-b688-aaa22ab8a124', 'max_guest': 10, 'number_rooms': 4, 'updated_at': datetime.datetime(2017, 11, 10, 4, 41, 7, 843774), 'created_at': datetime.datetime(2017, 11, 10, 4, 41, 7, 843747)}]
-(hbnb)
-guillaume@ubuntu:~/AirBnB_v2$
+5,213 assertions (as of 08/20/2018)
+13,061 assertions (as of 01/25/2021)
+The following requirements must be met for your project:
+
+all current tests must pass (don’t delete them…)
+add new tests as much as you can (tests are mandatory for some tasks)
+guillaume@ubuntu:~/AirBnB_v3$ python3 -m unittest discover tests 2>&1 | tail -1
+OK
+guillaume@ubuntu:~/AirBnB_v3$ HBNB_ENV=test HBNB_MYSQL_USER=hbnb_test HBNB_MYSQL_PWD=hbnb_test_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_test_db HBNB_TYPE_STORAGE=db python3 -m unittest discover tests 2>&1 /dev/null | tail -n 1
+OK
+guillaume@ubuntu:~/AirBnB_v3$ 
 Repo:
 
-GitHub repository: AirBnB_clone_v2
-File: console.py, models/, tests/
+GitHub repository: AirBnB_clone_v3
    
-3. MySQL setup development
+2. Improve storage
 mandatory
-Write a script that prepares a MySQL server for the project:
+Update DBStorage and FileStorage, adding two new methods. All changes should be done in the branch storage_get_count:
 
-A database hbnb_dev_db
-A new user hbnb_dev (in localhost)
-The password of hbnb_dev should be set to hbnb_dev_pwd
-hbnb_dev should have all privileges on the database hbnb_dev_db (and only this database)
-hbnb_dev should have SELECT privilege on the database performance_schema (and only this database)
-If the database hbnb_dev_db or the user hbnb_dev already exists, your script should not fail
-guillaume@ubuntu:~/AirBnB_v2$ cat setup_mysql_dev.sql | mysql -hlocalhost -uroot -p
-Enter password: 
-guillaume@ubuntu:~/AirBnB_v2$ echo "SHOW DATABASES;" | mysql -uhbnb_dev -p | grep hbnb_dev_db
-Enter password: 
-hbnb_dev_db
-guillaume@ubuntu:~/AirBnB_v2$ echo "SHOW GRANTS FOR 'hbnb_dev'@'localhost';" | mysql -uroot -p
-Enter password: 
-Grants for hbnb_dev@localhost
-GRANT USAGE ON *.* TO 'hbnb_dev'@'localhost'
-GRANT SELECT ON `performance_schema`.* TO 'hbnb_dev'@'localhost'
-GRANT ALL PRIVILEGES ON `hbnb_dev_db`.* TO 'hbnb_dev'@'localhost'
-guillaume@ubuntu:~/AirBnB_v2$ 
-Repo:
+A method to retrieve one object:
 
-GitHub repository: AirBnB_clone_v2
-File: setup_mysql_dev.sql
-   
-4. MySQL setup test
-mandatory
-Write a script that prepares a MySQL server for the project:
+Prototype: def get(self, cls, id):
+cls: class
+id: string representing the object ID
+Returns the object based on the class and its ID, or None if not found
+A method to count the number of objects in storage:
 
-A database hbnb_test_db
-A new user hbnb_test (in localhost)
-The password of hbnb_test should be set to hbnb_test_pwd
-hbnb_test should have all privileges on the database hbnb_test_db (and only this database)
-hbnb_test should have SELECT privilege on the database performance_schema (and only this database)
-If the database hbnb_test_db or the user hbnb_test already exists, your script should not fail
-guillaume@ubuntu:~/AirBnB_v2$ cat setup_mysql_test.sql | mysql -hlocalhost -uroot -p
-Enter password: 
-guillaume@ubuntu:~/AirBnB_v2$ echo "SHOW DATABASES;" | mysql -uhbnb_test -p | grep hbnb_test_db
-Enter password: 
-hbnb_test_db
-guillaume@ubuntu:~/AirBnB_v2$ echo "SHOW GRANTS FOR 'hbnb_test'@'localhost';" | mysql -uroot -p
-Enter password: 
-Grants for hbnb_test@localhost
-GRANT USAGE ON *.* TO 'hbnb_test'@'localhost'
-GRANT SELECT ON `performance_schema`.* TO 'hbnb_test'@'localhost'
-GRANT ALL PRIVILEGES ON `hbnb_test_db`.* TO 'hbnb_test'@'localhost'
-guillaume@ubuntu:~/AirBnB_v2$ 
-Repo:
+Prototype: def count(self, cls=None):
+cls: class (optional)
+Returns the number of objects in storage matching the given class. If no class is passed, returns the count of all objects in storage.
+Don’t forget to add new tests for these 2 methods on each storage engine.
 
-GitHub repository: AirBnB_clone_v2
-File: setup_mysql_test.sql
-   
-5. Delete object
-mandatory
-Update FileStorage: (models/engine/file_storage.py)
-
-Add a new public instance method: def delete(self, obj=None): to delete obj from __objects if it’s inside - if obj is equal to None, the method should not do anything
-Update the prototype of def all(self) to def all(self, cls=None) - that returns the list of objects of one type of class. Example below with State - it’s an optional filtering
-guillaume@ubuntu:~/AirBnB_v2$ cat main_delete.py
+guillaume@ubuntu:~/AirBnB_v3$ cat test_get_count.py
 #!/usr/bin/python3
-""" Test delete feature
+""" Test .get() and .count() methods
 """
-from models.engine.file_storage import FileStorage
+from models import storage
 from models.state import State
 
-fs = FileStorage()
+print("All objects: {}".format(storage.count()))
+print("State objects: {}".format(storage.count(State)))
 
-# All States
-all_states = fs.all(State)
-print("All States: {}".format(len(all_states.keys())))
-for state_key in all_states.keys():
-    print(all_states[state_key])
+first_state_id = list(storage.all(State).values())[0].id
+print("First state: {}".format(storage.get(State, first_state_id)))
 
-# Create a new State
-new_state = State()
-new_state.name = "California"
-fs.new(new_state)
-fs.save()
-print("New State: {}".format(new_state))
+guillaume@ubuntu:~/AirBnB_v3$
+guillaume@ubuntu:~/AirBnB_v3$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./test_get_count.py 
+All objects: 1013
+State objects: 27
+First state: [State] (f8d21261-3e79-4f5c-829a-99d7452cd73c) {'name': 'Colorado', 'updated_at': datetime.datetime(2017, 3, 25, 2, 17, 6), 'created_at': datetime.datetime(2017, 3, 25, 2, 17, 6), '_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7fc0103a8e80>, 'id': 'f8d21261-3e79-4f5c-829a-99d7452cd73c'}
+guillaume@ubuntu:~/AirBnB_v3$
+guillaume@ubuntu:~/AirBnB_v3$ ./test_get_count.py 
+All objects: 19
+State objects: 5
+First state: [State] (af14c85b-172f-4474-8a30-d4ec21f9795e) {'updated_at': datetime.datetime(2017, 4, 13, 17, 10, 22, 378824), 'name': 'Arizona', 'id': 'af14c85b-172f-4474-8a30-d4ec21f9795e', 'created_at': datetime.datetime(2017, 4, 13, 17, 10, 22, 378763)}
+guillaume@ubuntu:~/AirBnB_v3$ 
+For this task, you must make a pull request on GitHub.com, and ask at least one of your peer to review and merge it.
 
-# All States
-all_states = fs.all(State)
-print("All States: {}".format(len(all_states.keys())))
-for state_key in all_states.keys():
-    print(all_states[state_key])
-
-# Create another State
-another_state = State()
-another_state.name = "Nevada"
-fs.new(another_state)
-fs.save()
-print("Another State: {}".format(another_state))
-
-# All States
-all_states = fs.all(State)
-print("All States: {}".format(len(all_states.keys())))
-for state_key in all_states.keys():
-    print(all_states[state_key])        
-
-# Delete the new State
-fs.delete(new_state)
-
-# All States
-all_states = fs.all(State)
-print("All States: {}".format(len(all_states.keys())))
-for state_key in all_states.keys():
-    print(all_states[state_key])
-
-guillaume@ubuntu:~/AirBnB_v2$ ./main_delete.py
-All States: 0
-New State: [State] (b0026fc6-116f-4d1a-a9cb-6bb9b299f1ce) {'name': 'California', 'created_at': datetime.datetime(2017, 11, 10, 1, 13, 32, 561137), 'id': 'b0026fc6-116f-4d1a-a9cb-6bb9b299f1ce'}
-All States: 1
-[State] (b0026fc6-116f-4d1a-a9cb-6bb9b299f1ce) {'name': 'California', 'created_at': datetime.datetime(2017, 11, 10, 1, 13, 32, 561137), 'id': 'b0026fc6-116f-4d1a-a9cb-6bb9b299f1ce'}
-Another State: [State] (37705d25-8903-4318-9303-6d6d336a22c1) {'name': 'Nevada', 'created_at': datetime.datetime(2017, 11, 10, 1, 13, 34, 619133), 'id': '37705d25-8903-4318-9303-6d6d336a22c1'}
-All States: 2
-[State] (b0026fc6-116f-4d1a-a9cb-6bb9b299f1ce) {'name': 'California', 'created_at': datetime.datetime(2017, 11, 10, 1, 13, 32, 561137), 'id': 'b0026fc6-116f-4d1a-a9cb-6bb9b299f1ce'}
-[State] (37705d25-8903-4318-9303-6d6d336a22c1) {'name': 'Nevada', 'created_at': datetime.datetime(2017, 11, 10, 1, 13, 34, 619133), 'id': '37705d25-8903-4318-9303-6d6d336a22c1'}
-All States: 1
-[State] (37705d25-8903-4318-9303-6d6d336a22c1) {'name': 'Nevada', 'created_at': datetime.datetime(2017, 11, 10, 1, 13, 34, 619133), 'id': '37705d25-8903-4318-9303-6d6d336a22c1'}
-guillaume@ubuntu:~/AirBnB_v2$ 
 Repo:
 
-GitHub repository: AirBnB_clone_v2
-File: models/engine/file_storage.py
+GitHub repository: AirBnB_clone_v3
+File: models/engine/db_storage.py, models/engine/file_storage.py, tests/test_models/test_engine/test_db_storage.py, tests/test_models/test_engine/test_file_storage.py
    
-6. DBStorage - States and Cities
+3. Status of your API
 mandatory
-SQLAlchemy will be your best friend!
+It’s time to start your API!
 
-It’s time to change your storage engine and use SQLAlchemy
+Your first endpoint (route) will be to return the status of your API:
 
+guillaume@ubuntu:~/AirBnB_v3$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5000 python3 -m api.v1.app
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+...
+In another terminal:
 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/status
+{
+  "status": "OK"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET -s http://0.0.0.0:5000/api/v1/status -vvv 2>&1 | grep Content-Type
+< Content-Type: application/json
+guillaume@ubuntu:~/AirBnB_v3$ 
+Magic right? (No need to have a pretty rendered output, it’s a JSON, only the structure is important)
 
-In the following steps, you will make multiple changes:
+Ok, let starts:
 
-the biggest one is the transition between FileStorage and DBStorage: In the industry, you will never find a system who can work with both in the same time - but you will find a lot of services who can manage multiple storage systems. (for example, logs service: in memory, in disk, in database, in ElasticSearch etc…) - The main concept behind is the abstraction: Make your code running without knowing how it’s stored.
-add attributes for SQLAlchemy: they will be class attributes, like previously, with a “weird” value. Don’t worry, these values are for description and mapping to the database. If you change one of these values, or add/remove one attribute of the a model, you will have to delete the database and recreate it in SQL. (Yes it’s not optimal, but for development purposes, it’s ok. In production, we will add “migration mechanism” - for the moment, don’t spend time on it.)
-Please follow all these steps:
-
-Update BaseModel: (models/base_model.py)
-
-Create Base = declarative_base() before the class definition of BaseModel
-Note! BaseModel does /not/ inherit from Base. All other classes will inherit from BaseModel to get common values (id, created_at, updated_at), where inheriting from Base will actually cause SQLAlchemy to attempt to map it to a table.
-Add or replace in the class BaseModel:
-class attribute id
-represents a column containing a unique string (60 characters)
-can’t be null
-primary key
-class attribute created_at
-represents a column containing a datetime
-can’t be null
-default value is the current datetime (use datetime.utcnow())
-class attribute updated_at
-represents a column containing a datetime
-can’t be null
-default value is the current datetime (use datetime.utcnow())
-Move the models.storage.new(self) from def __init__(self, *args, **kwargs): to def save(self): and call it just before models.storage.save()
-In def __init__(self, *args, **kwargs):, manage kwargs to create instance attribute from this dictionary. Ex: kwargs={ 'name': "California" } => self.name = "California" if it’s not already the case
-Update the to_dict() method of the class BaseModel:
-remove the key _sa_instance_state from the dictionary returned by this method only if this key exists
-Add a new public instance method: def delete(self): to delete the current instance from the storage (models.storage) by calling the method delete
-Update City: (models/city.py)
-
-City inherits from BaseModel and Base (respect the order)
-Add or replace in the class City:
-class attribute __tablename__ -
-represents the table name, cities
-class attribute name
-represents a column containing a string (128 characters)
-can’t be null
-class attribute state_id
-represents a column containing a string (60 characters)
-can’t be null
-is a foreign key to states.id
-Update State: (models/state.py)
-
-State inherits from BaseModel and Base (respect the order)
-Add or replace in the class State:
-class attribute __tablename__
-represents the table name, states
-class attribute name
-represents a column containing a string (128 characters)
-can’t be null
-for DBStorage: class attribute cities must represent a relationship with the class City. If the State object is deleted, all linked City objects must be automatically deleted. Also, the reference from a City object to his State should be named state
-for FileStorage: getter attribute cities that returns the list of City instances with state_id equals to the current State.id => It will be the FileStorage relationship between State and City
-New engine DBStorage: (models/engine/db_storage.py)
-
-Private class attributes:
-__engine: set to None
-__session: set to None
-Public instance methods:
-__init__(self):
-create the engine (self.__engine)
-the engine must be linked to the MySQL database and user created before (hbnb_dev and hbnb_dev_db):
-dialect: mysql
-driver: mysqldb
-all of the following values must be retrieved via environment variables:
-MySQL user: HBNB_MYSQL_USER
-MySQL password: HBNB_MYSQL_PWD
-MySQL host: HBNB_MYSQL_HOST (here = localhost)
-MySQL database: HBNB_MYSQL_DB
-don’t forget the option pool_pre_ping=True when you call create_engine
-drop all tables if the environment variable HBNB_ENV is equal to test
-all(self, cls=None):
-query on the current database session (self.__session) all objects depending of the class name (argument cls)
-if cls=None, query all types of objects (User, State, City, Amenity, Place and Review)
-this method must return a dictionary: (like FileStorage)
-key = <class-name>.<object-id>
-value = object
-new(self, obj): add the object to the current database session (self.__session)
-save(self): commit all changes of the current database session (self.__session)
-delete(self, obj=None): delete from the current database session obj if not None
-reload(self):
-create all tables in the database (feature of SQLAlchemy) (WARNING: all classes who inherit from Base must be imported before calling Base.metadata.create_all(engine))
-create the current database session (self.__session) from the engine (self.__engine) by using a sessionmaker - the option expire_on_commit must be set to False ; and scoped_session - to make sure your Session is thread-safe
-Update __init__.py: (models/__init__.py)
-
-Add a conditional depending of the value of the environment variable HBNB_TYPE_STORAGE:
-If equal to db:
-Import DBStorage class in this file
-Create an instance of DBStorage and store it in the variable storage (the line storage.reload() should be executed after this instantiation)
-Else:
-Import FileStorage class in this file
-Create an instance of FileStorage and store it in the variable storage (the line storage.reload() should be executed after this instantiation)
-This “switch” will allow you to change storage type directly by using an environment variable (example below)
-State creation:
-
-guillaume@ubuntu:~/AirBnB_v2$ echo 'create State name="California"' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) 95a5abab-aa65-4861-9bc6-1da4a36069aa
-(hbnb)
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'all State' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) [[State] (95a5abab-aa65-4861-9bc6-1da4a36069aa) {'name': 'California', 'id': '95a5abab-aa65-4861-9bc6-1da4a36069aa', 'updated_at': datetime.datetime(2017, 11, 10, 0, 49, 54), 'created_at': datetime.datetime(2017, 11, 10, 0, 49, 54)}]
-(hbnb)
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'SELECT * FROM states\G' | mysql -uhbnb_dev -p hbnb_dev_db
-Enter password: 
-*************************** 1. row ***************************
-        id: 95a5abab-aa65-4861-9bc6-1da4a36069aa
-created_at: 2017-11-10 00:49:54
-updated_at: 2017-11-10 00:49:54
-      name: California
-guillaume@ubuntu:~/AirBnB_v2$ 
-City creation:
-
-guillaume@ubuntu:~/AirBnB_v2$ echo 'create City state_id="95a5abab-aa65-4861-9bc6-1da4a36069aa" name="San_Francisco"' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py
-(hbnb) 4b457e66-c7c8-4f63-910f-fd91c3b7140b
-(hbnb)
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'all City' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) [[City] (4b457e66-c7c8-4f63-910f-fd91c3b7140b) {'id': '4b457e66-c7c8-4f63-910f-fd91c3b7140b', 'updated_at': datetime.datetime(2017, 11, 10, 0, 52, 53), 'state_id': '95a5abab-aa65-4861-9bc6-1da4a36069aa', 'name': 'San Francisco', 'created_at': datetime.datetime(2017, 11, 10, 0, 52, 53)]
-(hbnb)
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'create City state_id="95a5abab-aa65-4861-9bc6-1da4a36069aa" name="San_Jose"' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py
-(hbnb) a7db3cdc-30e0-4d80-ad8c-679fe45343ba
-(hbnb)
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'SELECT * FROM cities\G' | mysql -uhbnb_dev -p hbnb_dev_db
-Enter password: 
-*************************** 1. row ***************************
-        id: 4b457e66-c7c8-4f63-910f-fd91c3b7140b
-created_at: 2017-11-10 00:52:53
-updated_at: 2017-11-10 00:52:53
-      name: San Francisco
-  state_id: 95a5abab-aa65-4861-9bc6-1da4a36069aa
-*************************** 2. row ***************************
-        id: a7db3cdc-30e0-4d80-ad8c-679fe45343ba
-created_at: 2017-11-10 00:53:19
-updated_at: 2017-11-10 00:53:19
-      name: San Jose
-  state_id: 95a5abab-aa65-4861-9bc6-1da4a36069aa
-guillaume@ubuntu:~/AirBnB_v2$ 
+Create a folder api at the root of the project with an empty file __init__.py
+Create a folder v1 inside api:
+create an empty file __init__.py
+create a file app.py:
+create a variable app, instance of Flask
+import storage from models
+import app_views from api.v1.views
+register the blueprint app_views to your Flask instance app
+declare a method to handle @app.teardown_appcontext that calls storage.close()
+inside if __name__ == "__main__":, run your Flask server (variable app) with:
+host = environment variable HBNB_API_HOST or 0.0.0.0 if not defined
+port = environment variable HBNB_API_PORT or 5000 if not defined
+threaded=True
+Create a folder views inside v1:
+create a file __init__.py:
+import Blueprint from flask doc
+create a variable app_views which is an instance of Blueprint (url prefix must be /api/v1)
+wildcard import of everything in the package api.v1.views.index => PEP8 will complain about it, don’t worry, it’s normal and this file (v1/views/__init__.py) won’t be check.
+create a file index.py
+import app_views from api.v1.views
+create a route /status on the object app_views that returns a JSON: "status": "OK" (see example)
 Repo:
 
-GitHub repository: AirBnB_clone_v2
-File: models/base_model.py, models/city.py, models/state.py, models/engine/db_storage.py, models/__init__.py
-  
-7. DBStorage - User
+GitHub repository: AirBnB_clone_v3
+File: api/__init__.py, api/v1/__init__.py, api/v1/views/__init__.py, api/v1/views/index.py, api/v1/app.py
+   
+4. Some stats?
 mandatory
-Update User: (models/user.py)
+Create an endpoint that retrieves the number of each objects by type:
 
-User inherits from BaseModel and Base (respect the order)
-Add or replace in the class User:
-class attribute __tablename__
-represents the table name, users
-class attribute email
-represents a column containing a string (128 characters)
-can’t be null
-class attribute password
-represents a column containing a string (128 characters)
-can’t be null
-class attribute first_name
-represents a column containing a string (128 characters)
-can be null
-class attribute last_name
-represents a column containing a string (128 characters)
-can be null
-guillaume@ubuntu:~/AirBnB_v2$ echo 'create User email="gui@hbtn.io" password="guipwd" first_name="Guillaume" last_name="Snow"' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) 4f3f4b42-a4c3-4c20-a492-efff10d00c0b
-(hbnb) 
-guillaume@ubuntu:~/AirBnB_v2$
-guillaume@ubuntu:~/AirBnB_v2$ echo 'all User' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) [[User] (4f3f4b42-a4c3-4c20-a492-efff10d00c0b) {'updated_at': datetime.datetime(2017, 11, 10, 1, 17, 26), 'id': '4f3f4b42-a4c3-4c20-a492-efff10d00c0b', 'last_name': 'Snow', 'first_name': 'Guillaume', 'email': 'gui@hbtn.io', 'created_at': datetime.datetime(2017, 11, 10, 1, 17, 26), 'password': 'f4ce007d8e84e0910fbdd7a06fa1692d'}]
-(hbnb) 
-guillaume@ubuntu:~/AirBnB_v2$
-guillaume@ubuntu:~/AirBnB_v2$ echo 'SELECT * FROM users\G' | mysql -uhbnb_dev -p hbnb_dev_db
-Enter password: 
-*************************** 1. row ***************************
-        id: 4f3f4b42-a4c3-4c20-a492-efff10d00c0b
-created_at: 2017-11-10 01:17:26
-updated_at: 2017-11-10 01:17:26
-     email: gui@hbtn.io
-  password: guipwd
-first_name: Guillaume
- last_name: Snow
-guillaume@ubuntu:~/AirBnB_v2$
+In api/v1/views/index.py
+Route: /api/v1/stats
+You must use the newly added count() method from storage
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/stats
+{
+  "amenities": 47, 
+  "cities": 36, 
+  "places": 154, 
+  "reviews": 718, 
+  "states": 27, 
+  "users": 31
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+(No need to have a pretty rendered output, it’s a JSON, only the structure is important)
+
 Repo:
 
-GitHub repository: AirBnB_clone_v2
-File: models/user.py
-  
-8. DBStorage - Place
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/index.py
+   
+5. Not found
 mandatory
-Update Place: (models/place.py)
+Designers are really creative when they have to design a “404 page”, a “Not found”… 34 brilliantly designed 404 error pages
 
-Place inherits from BaseModel and Base (respect the order)
-Add or replace in the class Place:
-class attribute __tablename__
-represents the table name, places
-class attribute city_id
-represents a column containing a string (60 characters)
-can’t be null
-is a foreign key to cities.id
-class attribute user_id
-represents a column containing a string (60 characters)
-can’t be null
-is a foreign key to users.id
-class attribute name
-represents a column containing a string (128 characters)
-can’t be null
-class attribute description
-represents a column containing a string (1024 characters)
-can be null
-class attribute number_rooms
-represents a column containing an integer
-can’t be null
-default value: 0
-class attribute number_bathrooms
-represents a column containing an integer
-can’t be null
-default value: 0
-class attribute max_guest
-represents a column containing an integer
-can’t be null
-default value: 0
-class attribute price_by_night
-represents a column containing an integer
-can’t be null
-default value: 0
-class attribute latitude
-represents a column containing a float
-can be null
-class attribute longitude
-represents a column containing a float
-can be null
-Update User: (models/user.py)
+Today it’s different, because you won’t use HTML and CSS, but JSON!
 
-Add or replace in the class User:
-class attribute places must represent a relationship with the class Place. If the User object is deleted, all linked Place objects must be automatically deleted. Also, the reference from a Place object to his User should be named user
-Update City: (models/city.py)
+In api/v1/app.py, create a handler for 404 errors that returns a JSON-formatted 404 status code response. The content should be: "error": "Not found"
 
-Add or replace in the class City:
-class attribute places must represent a relationship with the class Place. If the City object is deleted, all linked Place objects must be automatically deleted. Also, the reference from a Place object to his City should be named cities
-guillaume@ubuntu:~/AirBnB_v2$ echo 'create Place city_id="4b457e66-c7c8-4f63-910f-fd91c3b7140b" user_id="4f3f4b42-a4c3-4c20-a492-efff10d00c0b" name="Lovely_place" number_rooms=3 number_bathrooms=1 max_guest=6 price_by_night=120 latitude=37.773972 longitude=-122.431297' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) ed72aa02-3286-4891-acbc-9d9fc80a1103
-(hbnb) 
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'all Place' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) [[Place] (ed72aa02-3286-4891-acbc-9d9fc80a1103) {'latitude': 37.774, 'city_id': '4b457e66-c7c8-4f63-910f-fd91c3b7140b', 'price_by_night': 120, 'id': 'ed72aa02-3286-4891-acbc-9d9fc80a1103', 'user_id': '4f3f4b42-a4c3-4c20-a492-efff10d00c0b', 'max_guest': 6, 'created_at': datetime.datetime(2017, 11, 10, 1, 22, 30), 'description': None, 'number_rooms': 3, 'longitude': -122.431, 'number_bathrooms': 1, 'name': '"Lovely place', 'updated_at': datetime.datetime(2017, 11, 10, 1, 22, 30)}]
-(hbnb) 
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'SELECT * FROM places\G' | mysql -uhbnb_dev -p hbnb_dev_db
-Enter password: 
-*************************** 1. row ***************************
-              id: ed72aa02-3286-4891-acbc-9d9fc80a1103
-      created_at: 2017-11-10 01:22:30
-      updated_at: 2017-11-10 01:22:30
-         city_id: 4b457e66-c7c8-4f63-910f-fd91c3b7140b
-         user_id: 4f3f4b42-a4c3-4c20-a492-efff10d00c0b
-            name: "Lovely place"
-     description: NULL
-    number_rooms: 3
-number_bathrooms: 1
-       max_guest: 6
-  price_by_night: 120
-        latitude: 37.774
-       longitude: -122.431
-guillaume@ubuntu:~/AirBnB_v2$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/nop
+{
+  "error": "Not found"
+}
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/nop -vvv
+*   Trying 0.0.0.0...
+* TCP_NODELAY set
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> GET /api/v1/nop HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.51.0
+> Accept: */*
+> 
+* HTTP 1.0, assume close after body
+< HTTP/1.0 404 NOT FOUND
+< Content-Type: application/json
+< Content-Length: 27
+< Server: Werkzeug/0.12.1 Python/3.4.3
+< Date: Fri, 14 Apr 2017 23:43:24 GMT
+< 
+{
+  "error": "Not found"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
 Repo:
 
-GitHub repository: AirBnB_clone_v2
-File: models/place.py, models/user.py, models/city.py
-  
-9. DBStorage - Review
+GitHub repository: AirBnB_clone_v3
+File: api/v1/app.py
+   
+6. State
 mandatory
-Update Review: (models/review.py)
+Create a new view for State objects that handles all default RESTFul API actions:
 
-Review inherits from BaseModel and Base (respect the order)
-Add or replace in the class Review:
-class attribute __tablename__
-represents the table name, reviews
-class attribute text
-represents a column containing a string (1024 characters)
-can’t be null
-class attribute place_id
-represents a column containing a string (60 characters)
-can’t be null
-is a foreign key to places.id
-class attribute user_id
-represents a column containing a string (60 characters)
-can’t be null
-is a foreign key to users.id
-Update User: (models/user.py)
+In the file api/v1/views/states.py
+You must use to_dict() to retrieve an object into a valid JSON
+Update api/v1/views/__init__.py to import this new file
+Retrieves the list of all State objects: GET /api/v1/states
 
-Add or replace in the class User:
-class attribute reviews must represent a relationship with the class Review. If the User object is deleted, all linked Review objects must be automatically deleted. Also, the reference from a Review object to his User should be named user
-Update Place: (models/place.py)
+Retrieves a State object: GET /api/v1/states/<state_id>
 
-for DBStorage: class attribute reviews must represent a relationship with the class Review. If the Place object is deleted, all linked Review objects must be automatically deleted. Also, the reference from a Review object to his Place should be named place
-for FileStorage: getter attribute reviews that returns the list of Review instances with place_id equals to the current Place.id => It will be the FileStorage relationship between Place and Review
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'create User email="bob@hbtn.io" password="bobpwd" first_name="Bob" last_name="Dylan"' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) d93638d9-8233-4124-8f4e-17786592908b
-(hbnb) 
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'create Review place_id="ed72aa02-3286-4891-acbc-9d9fc80a1103" user_id="d93638d9-8233-4124-8f4e-17786592908b" text="Amazing_place,_huge_kitchen"' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) a2d163d3-1982-48ab-a06b-9dc71e68a791
-(hbnb) 
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'all Review' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
-(hbnb) [[Review] (f2616ff2-f723-4d67-85dc-f050a38e0f2f) {'text': 'Amazing place, huge kitchen', 'place_id': 'ed72aa02-3286-4891-acbc-9d9fc80a1103', 'id': 'f2616ff2-f723-4d67-85dc-f050a38e0f2f', 'updated_at': datetime.datetime(2017, 11, 10, 4, 6, 25), 'created_at': datetime.datetime(2017, 11, 10, 4, 6, 25), 'user_id': 'd93638d9-8233-4124-8f4e-17786592908b'}]
-(hbnb) 
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'SELECT * FROM reviews\G' | mysql -uhbnb_dev -p hbnb_dev_db
-Enter password: 
-*************************** 1. row ***************************
-        id: f2616ff2-f723-4d67-85dc-f050a38e0f2f
-created_at: 2017-11-10 04:06:25
-updated_at: 2017-11-10 04:06:25
-      text: Amazing place, huge kitchen
-  place_id: ed72aa02-3286-4891-acbc-9d9fc80a1103
-   user_id: d93638d9-8233-4124-8f4e-17786592908b
-guillaume@ubuntu:~/AirBnB_v2$ 
+If the state_id is not linked to any State object, raise a 404 error
+Deletes a State object:: DELETE /api/v1/states/<state_id>
+
+If the state_id is not linked to any State object, raise a 404 error
+Returns an empty dictionary with the status code 200
+Creates a State: POST /api/v1/states
+
+You must use request.get_json from Flask to transform the HTTP body request to a dictionary
+If the HTTP body request is not valid JSON, raise a 400 error with the message Not a JSON
+If the dictionary doesn’t contain the key name, raise a 400 error with the message Missing name
+Returns the new State with the status code 201
+Updates a State object: PUT /api/v1/states/<state_id>
+
+If the state_id is not linked to any State object, raise a 404 error
+You must use request.get_json from Flask to transform the HTTP body request to a dictionary
+If the HTTP body request is not valid JSON, raise a 400 error with the message Not a JSON
+Update the State object with all key-value pairs of the dictionary.
+Ignore keys: id, created_at and updated_at
+Returns the State object with the status code 200
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/states/
+[
+  {
+    "__class__": "State", 
+    "created_at": "2017-04-14T00:00:02", 
+    "id": "8f165686-c98d-46d9-87d9-d6059ade2d99", 
+    "name": "Louisiana", 
+    "updated_at": "2017-04-14T00:00:02"
+  }, 
+  {
+    "__class__": "State", 
+    "created_at": "2017-04-14T16:21:42", 
+    "id": "1a9c29c7-e39c-4840-b5f9-74310b34f269", 
+    "name": "Arizona", 
+    "updated_at": "2017-04-14T16:21:42"
+  }, 
+...
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/states/8f165686-c98d-46d9-87d9-d6059ade2d99
+ {
+  "__class__": "State", 
+  "created_at": "2017-04-14T00:00:02", 
+  "id": "8f165686-c98d-46d9-87d9-d6059ade2d99", 
+  "name": "Louisiana", 
+  "updated_at": "2017-04-14T00:00:02"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X POST http://0.0.0.0:5000/api/v1/states/ -H "Content-Type: application/json" -d '{"name": "California"}' -vvv
+*   Trying 0.0.0.0...
+* TCP_NODELAY set
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> POST /api/v1/states/ HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.51.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 22
+> 
+* upload completely sent off: 22 out of 22 bytes
+* HTTP 1.0, assume close after body
+< HTTP/1.0 201 CREATED
+< Content-Type: application/json
+< Content-Length: 195
+< Server: Werkzeug/0.12.1 Python/3.4.3
+< Date: Sat, 15 Apr 2017 01:30:27 GMT
+< 
+{
+  "__class__": "State", 
+  "created_at": "2017-04-15T01:30:27.557877", 
+  "id": "feadaa73-9e4b-4514-905b-8253f36b46f6", 
+  "name": "California", 
+  "updated_at": "2017-04-15T01:30:27.558081"
+}
+* Curl_http_done: called premature == 0
+* Closing connection 0
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X PUT http://0.0.0.0:5000/api/v1/states/feadaa73-9e4b-4514-905b-8253f36b46f6 -H "Content-Type: application/json" -d '{"name": "California is so cool"}'
+{
+  "__class__": "State", 
+  "created_at": "2017-04-15T01:30:28", 
+  "id": "feadaa73-9e4b-4514-905b-8253f36b46f6", 
+  "name": "California is so cool", 
+  "updated_at": "2017-04-15T01:51:08.044996"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/states/feadaa73-9e4b-4514-905b-8253f36b46f6
+{
+  "__class__": "State", 
+  "created_at": "2017-04-15T01:30:28", 
+  "id": "feadaa73-9e4b-4514-905b-8253f36b46f6", 
+  "name": "California is so cool", 
+  "updated_at": "2017-04-15T01:51:08"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X DELETE http://0.0.0.0:5000/api/v1/states/feadaa73-9e4b-4514-905b-8253f36b46f6
+{}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/states/feadaa73-9e4b-4514-905b-8253f36b46f6
+{
+  "error": "Not found"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
 Repo:
 
-GitHub repository: AirBnB_clone_v2
-File: models/review.py, models/user.py, models/place.py
-  
-10. DBStorage - Amenity... and BOOM!
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/states.py, api/v1/views/__init__.py
+   
+7. City
 mandatory
-Update Amenity: (models/amenity.py)
+Same as State, create a new view for City objects that handles all default RESTFul API actions:
 
-Amenity inherits from BaseModel and Base (respect the order)
-Add or replace in the class Amenity:
-class attribute __tablename__
-represents the table name, amenities
-class attribute name
-represents a column containing a string (128 characters)
-can’t be null
-class attribute place_amenities must represent a relationship Many-To-Many between the class Place and Amenity. Please see below more detail: place_amenity in the Place update
-Update Place: (models/place.py)
+In the file api/v1/views/cities.py
+You must use to_dict() to serialize an object into valid JSON
+Update api/v1/views/__init__.py to import this new file
+Retrieves the list of all City objects of a State: GET /api/v1/states/<state_id>/cities
 
-Add an instance of SQLAlchemy Table called place_amenity for creating the relationship Many-To-Many between Place and Amenity:
-table name place_amenity
-metadata = Base.metadata
-2 columns:
-place_id, a string of 60 characters foreign key of places.id, primary key in the table and never null
-amenity_id, a string of 60 characters foreign key of amenities.id, primary key in the table and never null
-Update Place class:
-for DBStorage: class attribute amenities must represent a relationship with the class Amenity but also as secondary to place_amenity with option viewonly=False (place_amenity has been define previously)
-for FileStorage:
-Getter attribute amenities that returns the list of Amenity instances based on the attribute amenity_ids that contains all Amenity.id linked to the Place
-Setter attribute amenities that handles append method for adding an Amenity.id to the attribute amenity_ids. This method should accept only Amenity object, otherwise, do nothing.
-What’s a Many-to-Many relationship?
-In our system, we don’t want to duplicate amenities (for example, having 10000 time the amenity Wifi), so they will be unique. But, at least 2 places can have the same amenity (like Wifi for example). We are in the case of:
+If the state_id is not linked to any State object, raise a 404 error
+Retrieves a City object. : GET /api/v1/cities/<city_id>
 
-an amenity can be linked to multiple places
-a place can have multiple amenities
-= Many-To-Many
+If the city_id is not linked to any City object, raise a 404 error
+Deletes a City object: DELETE /api/v1/cities/<city_id>
 
-To make this link working, we will create a third table called place_amenity that will create these links.
+If the city_id is not linked to any City object, raise a 404 error
+Returns an empty dictionary with the status code 200
+Creates a City: POST /api/v1/states/<state_id>/cities
 
-And you are good, you have a new engine!
+You must use request.get_json from Flask to transform the HTTP body request to a dictionary
+If the state_id is not linked to any State object, raise a 404 error
+If the HTTP body request is not a valid JSON, raise a 400 error with the message Not a JSON
+If the dictionary doesn’t contain the key name, raise a 400 error with the message Missing name
+Returns the new City with the status code 201
+Updates a City object: PUT /api/v1/cities/<city_id>
 
-guillaume@ubuntu:~/AirBnB_v2$ cat main_place_amenities.py 
-#!/usr/bin/python3
-""" Test link Many-To-Many Place <> Amenity
-"""
-from models import *
-
-# creation of a State
-state = State(name="California")
-state.save()
-
-# creation of a City
-city = City(state_id=state.id, name="San Francisco")
-city.save()
-
-# creation of a User
-user = User(email="john@snow.com", password="johnpwd")
-user.save()
-
-# creation of 2 Places
-place_1 = Place(user_id=user.id, city_id=city.id, name="House 1")
-place_1.save()
-place_2 = Place(user_id=user.id, city_id=city.id, name="House 2")
-place_2.save()
-
-# creation of 3 various Amenity
-amenity_1 = Amenity(name="Wifi")
-amenity_1.save()
-amenity_2 = Amenity(name="Cable")
-amenity_2.save()
-amenity_3 = Amenity(name="Oven")
-amenity_3.save()
-
-# link place_1 with 2 amenities
-place_1.amenities.append(amenity_1)
-place_1.amenities.append(amenity_2)
-
-# link place_2 with 3 amenities
-place_2.amenities.append(amenity_1)
-place_2.amenities.append(amenity_2)
-place_2.amenities.append(amenity_3)
-
-storage.save()
-
-print("OK")
-
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./main_place_amenities.py
-OK
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'SELECT * FROM amenities\G' | mysql -uhbnb_dev -p hbnb_dev_db
-Enter password: 
-*************************** 1. row ***************************
-        id: 47321eb8-152a-46df-969a-440aa67a6d59
-created_at: 2017-11-10 04:22:02
-updated_at: 2017-11-10 04:22:02
-      name: Cable
-*************************** 2. row ***************************
-        id: 4a307e7f-68f9-438f-81c0-8325898dda2a
-created_at: 2017-11-10 04:22:02
-updated_at: 2017-11-10 04:22:02
-      name: Oven
-*************************** 3. row ***************************
-        id: b80aec52-d0c9-420a-8471-3254572954b6
-created_at: 2017-11-10 04:22:02
-updated_at: 2017-11-10 04:22:02
-      name: Wifi
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'SELECT * FROM places\G' | mysql -uhbnb_dev -p hbnb_dev_db
-Enter password: 
-*************************** 1. row ***************************
-              id: 497e3867-d6e9-4401-9c7c-9687c18d2ac7
-      created_at: 2017-11-10 04:22:02
-      updated_at: 2017-11-10 04:22:02
-         city_id: 9d60df6e-31f7-430c-8162-69e89f4a17aa
-         user_id: 9b37bd51-6aef-485f-bf10-c7ab83fea2e9
-            name: House 1
-     description: NULL
-    number_rooms: 0
-number_bathrooms: 0
-       max_guest: 0
-  price_by_night: 0
-        latitude: NULL
-       longitude: NULL
-*************************** 2. row ***************************
-              id: db549ae1-4500-4d0c-9b50-4b4978ed229e
-      created_at: 2017-11-10 04:22:02
-      updated_at: 2017-11-10 04:22:02
-         city_id: 9d60df6e-31f7-430c-8162-69e89f4a17aa
-         user_id: 9b37bd51-6aef-485f-bf10-c7ab83fea2e9
-            name: House 2
-     description: NULL
-    number_rooms: 0
-number_bathrooms: 0
-       max_guest: 0
-  price_by_night: 0
-        latitude: NULL
-       longitude: NULL
-guillaume@ubuntu:~/AirBnB_v2$ 
-guillaume@ubuntu:~/AirBnB_v2$ echo 'SELECT * FROM place_amenity\G' | mysql -uhbnb_dev -p hbnb_dev_db
-Enter password: 
-*************************** 1. row ***************************
-  place_id: 497e3867-d6e9-4401-9c7c-9687c18d2ac7
-amenity_id: 47321eb8-152a-46df-969a-440aa67a6d59
-*************************** 2. row ***************************
-  place_id: db549ae1-4500-4d0c-9b50-4b4978ed229e
-amenity_id: 47321eb8-152a-46df-969a-440aa67a6d59
-*************************** 3. row ***************************
-  place_id: db549ae1-4500-4d0c-9b50-4b4978ed229e
-amenity_id: 4a307e7f-68f9-438f-81c0-8325898dda2a
-*************************** 4. row ***************************
-  place_id: 497e3867-d6e9-4401-9c7c-9687c18d2ac7
-amenity_id: b80aec52-d0c9-420a-8471-3254572954b6
-*************************** 5. row ***************************
-  place_id: db549ae1-4500-4d0c-9b50-4b4978ed229e
-amenity_id: b80aec52-d0c9-420a-8471-3254572954b6
-guillaume@ubuntu:~/AirBnB_v2$ 
+If the city_id is not linked to any City object, raise a 404 error
+You must use request.get_json from Flask to transform the HTTP body request to a dictionary
+If the HTTP request body is not valid JSON, raise a 400 error with the message Not a JSON
+Update the City object with all key-value pairs of the dictionary
+Ignore keys: id, state_id, created_at and updated_at
+Returns the City object with the status code 200
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/states/not_an_id/cities/
+{
+  "error": "Not found"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities
+[
+  {
+    "__class__": "City", 
+    "created_at": "2017-03-25T02:17:06", 
+    "id": "1da255c0-f023-4779-8134-2b1b40f87683", 
+    "name": "New Orleans", 
+    "state_id": "2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", 
+    "updated_at": "2017-03-25T02:17:06"
+  }, 
+  {
+    "__class__": "City", 
+    "created_at": "2017-03-25T02:17:06", 
+    "id": "45903748-fa39-4cd0-8a0b-c62bfe471702", 
+    "name": "Lafayette", 
+    "state_id": "2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", 
+    "updated_at": "2017-03-25T02:17:06"
+  }, 
+  {
+    "__class__": "City", 
+    "created_at": "2017-03-25T02:17:06", 
+    "id": "e4e40a6e-59ff-4b4f-ab72-d6d100201588", 
+    "name": "Baton rouge", 
+    "state_id": "2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", 
+    "updated_at": "2017-03-25T02:17:06"
+  }
+]
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683
+{
+  "__class__": "City", 
+  "created_at": "2017-03-25T02:17:06", 
+  "id": "1da255c0-f023-4779-8134-2b1b40f87683", 
+  "name": "New Orleans", 
+  "state_id": "2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", 
+  "updated_at": "2017-03-25T02:17:06"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X POST http://0.0.0.0:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities -H "Content-Type: application/json" -d '{"name": "Alexandria"}' -vvv
+*   Trying 0.0.0.0...
+* TCP_NODELAY set
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> POST /api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities/ HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.51.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 22
+> 
+* upload completely sent off: 22 out of 22 bytes
+* HTTP 1.0, assume close after body
+< HTTP/1.0 201 CREATED
+< Content-Type: application/json
+< Content-Length: 249
+< Server: Werkzeug/0.12.1 Python/3.4.3
+< Date: Sun, 16 Apr 2017 03:14:05 GMT
+< 
+{
+  "__class__": "City", 
+  "created_at": "2017-04-16T03:14:05.655490", 
+  "id": "b75ae104-a8a3-475e-bf74-ab0a066ca2af", 
+  "name": "Alexandria", 
+  "state_id": "2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", 
+  "updated_at": "2017-04-16T03:14:05.655748"
+}
+* Curl_http_done: called premature == 0
+* Closing connection 0
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X PUT http://0.0.0.0:5000/api/v1/cities/b75ae104-a8a3-475e-bf74-ab0a066ca2af -H "Content-Type: application/json" -d '{"name": "Bossier City"}'
+{
+  "__class__": "City", 
+  "created_at": "2017-04-16T03:14:06", 
+  "id": "b75ae104-a8a3-475e-bf74-ab0a066ca2af", 
+  "name": "Bossier City", 
+  "state_id": "2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", 
+  "updated_at": "2017-04-16T03:15:12.895894"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/cities/b75ae104-a8a3-475e-bf74-ab0a066ca2af
+{
+  "__class__": "City", 
+  "created_at": "2017-04-16T03:14:06", 
+  "id": "b75ae104-a8a3-475e-bf74-ab0a066ca2af", 
+  "name": "Bossier City", 
+  "state_id": "2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", 
+  "updated_at": "2017-04-16T03:15:13"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X DELETE http://0.0.0.0:5000/api/v1/cities/b75ae104-a8a3-475e-bf74-ab0a066ca2af
+{}
+guillaume@ubuntu:~/AirBnB_v3$ 
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/cities/b75ae104-a8a3-475e-bf74-ab0a066ca2af
+{
+  "error": "Not found"
+}
+guillaume@ubuntu:~/AirBnB_v3$ 
 Repo:
 
-GitHub repository: AirBnB_clone_v2
-File: models/amenity.py, models/place.py
-  
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/cities.py, api/v1/views/__init__.py
+   
+8. Amenity
+mandatory
+Create a new view for Amenity objects that handles all default RESTFul API actions:
+
+In the file api/v1/views/amenities.py
+You must use to_dict() to serialize an object into valid JSON
+Update api/v1/views/__init__.py to import this new file
+Retrieves the list of all Amenity objects: GET /api/v1/amenities
+
+Retrieves a Amenity object: GET /api/v1/amenities/<amenity_id>
+
+If the amenity_id is not linked to any Amenity object, raise a 404 error
+Deletes a Amenity object:: DELETE /api/v1/amenities/<amenity_id>
+
+If the amenity_id is not linked to any Amenity object, raise a 404 error
+Returns an empty dictionary with the status code 200
+Creates a Amenity: POST /api/v1/amenities
+
+You must use request.get_json from Flask to transform the HTTP request to a dictionary
+If the HTTP request body is not valid JSON, raise a 400 error with the message Not a JSON
+If the dictionary doesn’t contain the key name, raise a 400 error with the message Missing name
+Returns the new Amenity with the status code 201
+Updates a Amenity object: PUT /api/v1/amenities/<amenity_id>
+
+If the amenity_id is not linked to any Amenity object, raise a 404 error
+You must use request.get_json from Flask to transform the HTTP request to a dictionary
+If the HTTP request body is not valid JSON, raise a 400 error with the message Not a JSON
+Update the Amenity object with all key-value pairs of the dictionary
+Ignore keys: id, created_at and updated_at
+Returns the Amenity object with the status code 200
+Repo:
+
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/amenities.py, api/v1/views/__init__.py
+   
+9. User
+mandatory
+Create a new view for User object that handles all default RESTFul API actions:
+
+In the file api/v1/views/users.py
+You must use to_dict() to retrieve an object into a valid JSON
+Update api/v1/views/__init__.py to import this new file
+Retrieves the list of all User objects: GET /api/v1/users
+
+Retrieves a User object: GET /api/v1/users/<user_id>
+
+If the user_id is not linked to any User object, raise a 404 error
+Deletes a User object:: DELETE /api/v1/users/<user_id>
+
+If the user_id is not linked to any User object, raise a 404 error
+Returns an empty dictionary with the status code 200
+Creates a User: POST /api/v1/users
+
+You must use request.get_json from Flask to transform the HTTP body request to a dictionary
+If the HTTP body request is not valid JSON, raise a 400 error with the message Not a JSON
+If the dictionary doesn’t contain the key email, raise a 400 error with the message Missing email
+If the dictionary doesn’t contain the key password, raise a 400 error with the message Missing password
+Returns the new User with the status code 201
+Updates a User object: PUT /api/v1/users/<user_id>
+
+If the user_id is not linked to any User object, raise a 404 error
+You must use request.get_json from Flask to transform the HTTP body request to a dictionary
+If the HTTP body request is not valid JSON, raise a 400 error with the message Not a JSON
+Update the User object with all key-value pairs of the dictionary
+Ignore keys: id, email, created_at and updated_at
+Returns the User object with the status code 200
+Repo:
+
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/users.py, api/v1/views/__init__.py
+   
+10. Place
+mandatory
+Create a new view for Place objects that handles all default RESTFul API actions:
+
+In the file api/v1/views/places.py
+You must use to_dict() to retrieve an object into a valid JSON
+Update api/v1/views/__init__.py to import this new file
+Retrieves the list of all Place objects of a City: GET /api/v1/cities/<city_id>/places
+
+If the city_id is not linked to any City object, raise a 404 error
+Retrieves a Place object. : GET /api/v1/places/<place_id>
+
+If the place_id is not linked to any Place object, raise a 404 error
+Deletes a Place object: DELETE /api/v1/places/<place_id>
+
+If the place_id is not linked to any Place object, raise a 404 error
+Returns an empty dictionary with the status code 200
+Creates a Place: POST /api/v1/cities/<city_id>/places
+
+You must use request.get_json from Flask to transform the HTTP request to a dictionary
+If the city_id is not linked to any City object, raise a 404 error
+If the HTTP request body is not valid JSON, raise a 400 error with the message Not a JSON
+If the dictionary doesn’t contain the key user_id, raise a 400 error with the message Missing user_id
+If the user_id is not linked to any User object, raise a 404 error
+If the dictionary doesn’t contain the key name, raise a 400 error with the message Missing name
+Returns the new Place with the status code 201
+Updates a Place object: PUT /api/v1/places/<place_id>
+
+If the place_id is not linked to any Place object, raise a 404 error
+You must use request.get_json from Flask to transform the HTTP request to a dictionary
+If the HTTP request body is not valid JSON, raise a 400 error with the message Not a JSON
+Update the Place object with all key-value pairs of the dictionary
+Ignore keys: id, user_id, city_id, created_at and updated_at
+Returns the Place object with the status code 200
+Repo:
+
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/places.py, api/v1/views/__init__.py
+   
+11. Reviews
+mandatory
+Create a new view for Review object that handles all default RESTFul API actions:
+
+In the file api/v1/views/places_reviews.py
+You must use to_dict() to retrieve an object into valid JSON
+Update api/v1/views/__init__.py to import this new file
+Retrieves the list of all Review objects of a Place: GET /api/v1/places/<place_id>/reviews
+
+If the place_id is not linked to any Place object, raise a 404 error
+Retrieves a Review object. : GET /api/v1/reviews/<review_id>
+
+If the review_id is not linked to any Review object, raise a 404 error
+Deletes a Review object: DELETE /api/v1/reviews/<review_id>
+
+If the review_id is not linked to any Review object, raise a 404 error
+Returns an empty dictionary with the status code 200
+Creates a Review: POST /api/v1/places/<place_id>/reviews
+
+You must use request.get_json from Flask to transform the HTTP request to a dictionary
+If the place_id is not linked to any Place object, raise a 404 error
+If the HTTP body request is not valid JSON, raise a 400 error with the message Not a JSON
+If the dictionary doesn’t contain the key user_id, raise a 400 error with the message Missing user_id
+If the user_id is not linked to any User object, raise a 404 error
+If the dictionary doesn’t contain the key text, raise a 400 error with the message Missing text
+Returns the new Review with the status code 201
+Updates a Review object: PUT /api/v1/reviews/<review_id>
+
+If the review_id is not linked to any Review object, raise a 404 error
+You must use request.get_json from Flask to transform the HTTP request to a dictionary
+If the HTTP request body is not valid JSON, raise a 400 error with the message Not a JSON
+Update the Review object with all key-value pairs of the dictionary
+Ignore keys: id, user_id, place_id, created_at and updated_at
+Returns the Review object with the status code 200
+Repo:
+
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/places_reviews.py, api/v1/views/__init__.py
+   
+12. HTTP access control (CORS)
+mandatory
+A resource makes a cross-origin HTTP request when it requests a resource from a different domain, or port, than the one the first resource itself serves.
+
+Read the full definition here
+
+Why do we need this?
+
+Because you will soon start allowing a web client to make requests your API. If your API doesn’t have a correct CORS setup, your web client won’t be able to access your data.
+
+With Flask, it’s really easy, you will use the class CORS of the module flask_cors.
+
+How to install it: $ pip3 install flask_cors
+
+Update api/v1/app.py to create a CORS instance allowing: /* for 0.0.0.0
+
+You will update it later when you will deploy your API to production.
+
+Now you can see this HTTP Response Header: < Access-Control-Allow-Origin: 0.0.0.0
+
+guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683 -vvv
+*   Trying 0.0.0.0...
+* TCP_NODELAY set
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> GET /api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities/1da255c0-f023-4779-8134-2b1b40f87683 HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.51.0
+> Accept: */*
+> 
+* HTTP 1.0, assume close after body
+< HTTP/1.0 200 OK
+< Content-Type: application/json
+< Access-Control-Allow-Origin: 0.0.0.0
+< Content-Length: 236
+< Server: Werkzeug/0.12.1 Python/3.4.3
+< Date: Sun, 16 Apr 2017 04:20:13 GMT
+< 
+{
+  "__class__": "City", 
+  "created_at": "2017-03-25T02:17:06", 
+  "id": "1da255c0-f023-4779-8134-2b1b40f87683", 
+  "name": "New Orleans", 
+  "state_id": "2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", 
+  "updated_at": "2017-03-25T02:17:06"
+}
+* Curl_http_done: called premature == 0
+* Closing connection 0
+guillaume@ubuntu:~/AirBnB_v3$ 
+Repo:
+
+GitHub repository: AirBnB_clone_v3
+File: api/v1/app.py
+   
+13. Place - Amenity
+#advanced
+Create a new view for the link between Place objects and Amenity objects that handles all default RESTFul API actions:
+
+In the file api/v1/views/places_amenities.py
+You must use to_dict() to retrieve an object into a valid JSON
+Update api/v1/views/__init__.py to import this new file
+Depending of the storage:
+DBStorage: list, create and delete Amenity objects from amenities relationship
+FileStorage: list, add and remove Amenity ID in the list amenity_ids of a Place object
+Retrieves the list of all Amenity objects of a Place: GET /api/v1/places/<place_id>/amenities
+
+If the place_id is not linked to any Place object, raise a 404 error
+Deletes a Amenity object to a Place: DELETE /api/v1/places/<place_id>/amenities/<amenity_id>
+
+If the place_id is not linked to any Place object, raise a 404 error
+If the amenity_id is not linked to any Amenity object, raise a 404 error
+If the Amenity is not linked to the Place before the request, raise a 404 error
+Returns an empty dictionary with the status code 200
+Link a Amenity object to a Place: POST /api/v1/places/<place_id>/amenities/<amenity_id>
+
+No HTTP body needed
+If the place_id is not linked to any Place object, raise a 404 error
+If the amenity_id is not linked to any Amenity object, raise a 404 error
+If the Amenity is already linked to the Place, return the Amenity with the status code 200
+Returns the Amenity with the status code 201
+Repo:
+
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/places_amenities.py, api/v1/views/__init__.py
+   
+14. Security improvements!
+#advanced
+Currently, the User object is designed to store the user password in cleartext.
+
+It’s super bad!
+
+To avoid that, improve the User object:
+
+Update the method to_dict() of BaseModel to remove the password key except when it’s used by FileStorage to save data to disk. Tips: default parameters
+Each time a new User object is created or password updated, the password is hashed to a MD5 value
+In the database for DBStorage, the password stored is now hashed to a MD5 value
+In the file for FileStorage, the password stored is now hashed to a MD5 value
+Repo:
+
+GitHub repository: AirBnB_clone_v3
+File: models/base_model.py, models/user.py
+   
+15. Search
+#advanced
+For the moment, the only way to list Place objects is via GET /api/v1/cities/<city_id>/places.
+
+Good, but not enough…
+
+Update api/v1/views/places.py to add a new endpoint: POST /api/v1/places_search that retrieves all Place objects depending of the JSON in the body of the request.
+
+The JSON can contain 3 optional keys:
+
+states: list of State ids
+cities: list of City ids
+amenities: list of Amenity ids
+Search rules:
+
+If the HTTP request body is not valid JSON, raise a 400 error with the message Not a JSON
+If the JSON body is empty or each list of all keys are empty: retrieve all Place objects
+If states list is not empty, results should include all Place objects for each State id listed
+If cities list is not empty, results should include all Place objects for each City id listed
+Keys states and cities are inclusive. Search results should include all Place objects in storage related to each City in every State listed in states, plus every City listed individually in cities, unless that City was already included by states.
+Context:
+State A has 2 cities A1 and A2
+State B has 3 cities B1, B2 and B3
+A1 has 1 place
+A2 has 2 places
+B1 has 3 places
+B2 has 4 places
+B3 has 5 places
+Search: states = State A and cities = B2
+Result: all 4 places from the city B2 and the place from the city A1 and the 2 places of the city A2 (because they are part of State A) => 7 places returned
+If amenities list is not empty, limit search results to only Place objects having all Amenity ids listed
+The key amenities is exclusive, acting as a filter on the results generated by states and cities, or on all Place if states and cities are both empty or missing.
+Results will only include Place objects having all listed amenities. If a Place doesn’t have even one of these amenities, it won’t be retrieved.
+guillaume@ubuntu:~/AirBnB_v3$ curl -X POST http://0.0.0.0:5000/api/v1/places_search -H "Content-Type: application/json" -d '{"states": ["2b9a4627-8a9e-4f32-a752-9a84fa7f4efd", "459e021a-e794-447d-9dd2-e03b7963f7d2"], "cities": ["5976f0e7-5c5f-4949-aae0-90d68fd239c0"]}'
+[
+  {
+    "__class__": "Place", 
+    "created_at": "2017-03-25T02:17:06", 
+    "id": "dacec983-cec4-4f68-bd7f-af9068a305f5", 
+    "name": "The Lynn House", 
+    "city_id": "5976f0e7-5c5f-4949-aae0-90d68fd239c0", 
+    "user_id": "3ea61b06-e22a-459b-bb96-d900fb8f843a", 
+    "description": "Our place is 2 blocks from Vista Park (Farmer's Market), Historic Warren Ballpark, and about 2 miles from Old Bisbee where there is shopping, dining, and site seeing. We offer continental breakfast. You get the quiet life with great mountain and garden views. This is a 100+ year old cozy home which has been on both the Garden and Home tours. You have access to whole house, except for 1 restricted area (She-Shack).  Hosts are on site in a casita in the back from 8pm until 7am when we are in town.<BR /><BR />Our home has two bedrooms, one king and one queen.  There are 2 bathrooms, 1  1950's soak tub with shower and 1 with shower only.  Guests have access to the living/dining room area, and the kitchen (except for use of stove/oven).  Each morning, coffee/tea, and muffins are ready for guests.  A small frig is available in the dining room with water/juice and an area for guest items.  1 parking space is directly across the street.", 
+    "number_rooms": 2,
+    "number_bathrooms": 2,
+    "max_guest": 4,
+    "price_by_night": 82, 
+    "latitude": 31.4141, 
+    "longitude": -109.879, 
+    "updated_at": "2017-03-25T02:17:06"
+  },
+    {
+    "__class__": "Place", 
+    "created_at": "2017-03-25T12:17:06", 
+    "id": "85f979ad-a345-4190-9d1b-719bb3c642ba", 
+    "name": "Little blue House in New Orleans", 
+    "city_id": "1da255c0-f023-4779-8134-2b1b40f87683", 
+    "user_id": "44b3ab44-4798-4a3a-9f72-ee1eeace4b33", 
+    "description": "Nice place closed to Bourbon street.", 
+    "number_rooms": 1,
+    "number_bathrooms": 1,
+    "max_guest": 3,
+    "price_by_night": 42, 
+    "latitude": 29.951065, 
+    "longitude": -90.071533, 
+    "updated_at": "2017-03-25T02:17:06"
+  },
+...
+guillaume@ubuntu:~/AirBnB_v3$ 
+Repo:
+
+GitHub repository: AirBnB_clone_v3
+File: api/v1/views/places.py
+   
 Copyright © 2023 ALX, All rights reserved.
